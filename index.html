@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تجمع عون الشبابي</title>
+    <title>بطاقة عضوية - تجمع عون الشبابي</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
         
@@ -12,9 +12,8 @@
             --secondary: #520056;
             --accent: #e55039;
             --light: #f5f6fa;
-            --dark: #2f3640;
             --text: #353b48;
-            --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
             --radius: 16px;
         }
         
@@ -28,173 +27,96 @@
             font-family: 'Tajawal', sans-serif;
             line-height: 1.8;
             color: var(--text);
-            background-color: var(--light);
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        /* Header Styles */
-        .hero {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
+        .card-container {
+            max-width: 500px;
             width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
-            opacity: 0.3;
         }
         
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        
-        .hero p {
-            font-size: 1.4rem;
-            opacity: 0.9;
-        }
-        
-        /* Card Styles */
-        .card {
+        /* Membership Card */
+        .membership-card {
             background: white;
             border-radius: var(--radius);
-            padding: 40px;
-            margin-bottom: 30px;
+            padding: 0;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(0, 0, 0, 0.03);
-        }
-        
-        .card h2 {
-            color: var(--primary);
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-            font-size: 2rem;
-            font-weight: 700;
+            overflow: hidden;
+            margin-bottom: 30px;
             position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
         
-        .card h2::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            right: 0;
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(to right, var(--secondary), var(--accent));
+        .card-gradient-bar {
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 100%;
         }
         
-        .card h3 {
-            color: var(--secondary);
-            margin: 25px 0 15px;
-            font-size: 1.5rem;
+        .card-content {
+            padding: 30px;
+        }
+        
+        .card-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .card-header h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .card-header p {
+            color: var(--text);
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        
+        .card-body {
+            margin-bottom: 25px;
+        }
+        
+        .card-body p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .card-footer {
+            background: linear-gradient(to right, rgba(156, 83, 51, 0.05), rgba(82, 0, 86, 0.03));
+            padding: 20px;
+            border-radius: 12px;
+            border-right: 4px solid var(--primary);
+            margin-top: 30px;
+        }
+        
+        .card-footer h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 1.4rem;
             font-weight: 600;
         }
         
-        /* تجمع عون Section */
-        .about-org {
-            background: linear-gradient(135deg, rgba(156, 83, 51, 0.95), rgba(82, 0, 86, 0.95));
-            color: white;
-            padding: 60px 40px;
-            border-radius: var(--radius);
-            margin-bottom: 60px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        
-        .about-org::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-        }
-        
-        .about-org::after {
-            content: '';
-            position: absolute;
-            bottom: -80px;
-            left: -80px;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.03);
-        }
-        
-        .about-org h2 {
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .about-org p {
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .about-org ul {
-            margin-right: 30px;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .about-org li {
-            margin-bottom: 15px;
-            position: relative;
-            padding-right: 25px;
-            font-size: 1.2rem;
-        }
-        
-        .about-org li::before {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 12px;
-            width: 12px;
-            height: 12px;
-            background-color: var(--accent);
-            transform: rotate(45deg);
+        .card-footer h3::before {
+            content: "🔷";
+            margin-left: 10px;
         }
         
         /* Buttons */
-        .btn-container {
+        .buttons-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
+            gap: 15px;
             flex-wrap: wrap;
         }
         
@@ -202,13 +124,16 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 16px 32px;
+            padding: 16px 28px;
             border-radius: 50px;
             font-weight: 700;
             text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-size: 1.05rem;
+            min-width: 200px;
+            position: relative;
+            overflow: hidden;
         }
         
         .btn-whatsapp {
@@ -216,86 +141,95 @@
             color: white;
         }
         
-        .btn-contact {
-            background-color: var(--primary);
+        .btn-join {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
+            border: none;
         }
         
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn i {
-            margin-left: 10px;
-            font-size: 1.3rem;
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            color: var(--text);
-            font-size: 1.1rem;
-            margin-top: 60px;
-            background: linear-gradient(135deg, rgba(245, 246, 250, 0.9), rgba(245, 246, 250, 0.9));
-            position: relative;
-        }
-        
-        footer::before {
+        .btn-join::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.1), transparent);
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .btn-join:hover::before {
+            opacity: 1;
+        }
+        
+        .btn-join span {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn i {
+            margin-left: 10px;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .membership-card {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        .buttons-container {
+            animation: fadeIn 0.6s ease-out 0.2s forwards;
+            opacity: 0;
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="hero">
-        <div class="hero-content">
-            <h1>تجمع عون الشبابي</h1>
-            <p>تجمع وطني تطوعي مستقل لتمكين الشباب وبناء الوطن</p>
-        </div>
-    </header>
-    
-    <div class="container">
-        <!-- تجمع عون الشبابي Section -->
-        <section class="about-org">
-            <h2>من نحن</h2>
-            <p>تجمع وطني تطوعي مستقل، يضم نخبة من الشباب الواعي والطموح، يعمل على دعم المبادرات المجتمعية، وتمكين الطاقات الفردية، وتعزيز الوعي الوطني والمسؤولية المدنية.</p>
-            
-            <h3>أهدافنا العامة:</h3>
-            <ul>
-                <li>تعزيز روح الانتماء والعمل الجماعي</li>
-                <li>دعم الكفاءات الشابة وتنميتها</li>
-                <li>الإسهام في بناء مجتمع واعٍ ومسؤول</li>
-                <li>نشر ثقافة الالتزام والتطوع المجتمعي</li>
-                <li>بناء شبكات تواصل فعالة بين الشباب</li>
-            </ul>
-            
-            <h3>رؤيتنا:</h3>
-            <p>أن يكون شباب العراق قوة بناء وتغيير فاعل في محيطه، بعيدًا عن الفوضى أو التبعية، ومسترشدًا بقيم النزاهة والانضباط والعمل المنتج.</p>
-            
-            <div class="btn-container">
-                <a href="https://wa.me/9647715778838" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
-                </a>
-                <a href="mailto:info@example.com" class="btn btn-contact">
-                    <i class="fas fa-envelope"></i> انظم للتجمع
-                </a>
+    <div class="card-container">
+        <!-- Membership Card -->
+        <div class="membership-card">
+            <div class="card-gradient-bar"></div>
+            <div class="card-content">
+                <div class="card-header">
+                    <h1>بطاقة عضوية</h1>
+                    <p>تجمع عون الشبابي</p>
+                </div>
+                
+                <div class="card-body">
+                    <p>هذه البطاقة صادرة من "تجمع عون الشبابي"</p>
+                    <p>البطاقة تنظيمية داخلية خاصة بأعضاء التجمع، ولا تُعد وثيقة رسمية أو حكومية.</p>
+                </div>
+                
+                <div class="card-footer">
+                    <h3>الفخر بالانتماء</h3>
+                    <p>يحمل من يحمل هذه الهوية روح الانتماء الصادق لوطنه، والتزامه بخدمة مشروع شبابي وطني ينبض بالأمل، ويؤمن بالإصلاح والتغيير عبر العمل الميداني والفكري النزيه.</p>
+                    <p>أنت جزء من كتيبة عون، عمادها الشباب وروحها الوطن.</p>
+                </div>
             </div>
-        </section>
-    </div>
-    
-    <footer>
-        <div class="container">
-            <p>© 2025 تجمع عون الشبابي | جميع الحقوق محفوظة</p>
         </div>
-    </footer>
+        
+        <!-- Buttons -->
+        <div class="buttons-container">
+            <a href="https://wa.me/9647715778838" class="btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+            </a>
+            <a href="https://example.com/join" class="btn btn-join">
+                <i class="fas fa-user-plus"></i> <span>انضم الآن</span>
+            </a>
+        </div>
+    </div>
 </body>
 </html>
